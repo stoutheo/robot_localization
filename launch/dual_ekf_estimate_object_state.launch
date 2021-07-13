@@ -1,0 +1,42 @@
+<launch>
+
+
+  <!-- robot_localization EKF node for the odom frame -->
+  <node pkg="robot_localization" type="ekf_localization_node" name="robot_localization_ekf_node_odom" clear_params="true">
+    <param name="frequency" value="100." />
+    <param name="sensor_timeout" value="0.2" />
+    <param name="publish_tf" value="true" />
+    <param name="map_frame" value="map" />
+    <param name="odom_frame" value="odom" />
+    <param name="base_link_frame" value="base_link" />
+    <param name="world_frame" value="odom" />
+    <param name="print_diagnostics" value="true" />
+    <param name="pose0" value="target/sensor/pose" />
+    <param name="pose0_differential" value="true"/>
+    <rosparam param="pose0_config">[true, true, true, true, true, true,
+                                   false, false, false, false, false, false,
+                                   false, false, false]</rosparam>
+
+     <!-- This is what is published .... -->
+     <remap from="odometry/filtered" to="target/filtered_twist" />
+  </node>
+
+  <!-- robot_localization EKF node for the map frame -->
+  <node pkg="robot_localization" type="ekf_localization_node" name="robot_localization_ekf_node_map"  clear_params="true">
+    <param name="frequency" value="100" />
+    <param name="sensor_timeout" value="0.2" />
+    <param name="publish_tf" value="true" />
+    <param name="map_frame" value="map" />
+    <param name="odom_frame" value="odom" />
+    <param name="base_link_frame" value="base_link" />
+    <param name="world_frame" value="map" />
+    <param name="pose0" value="target/sensor/pose" />
+    <rosparam param="pose0_config">[true, true, true, true, true, true,
+                                   false, false, false, false, false, false,
+                                   false, false, false]</rosparam>
+
+    <!-- This is what is published .... -->
+    <remap from="odometry/filtered" to="target/filtered_map"/>
+  </node>
+
+</launch>
