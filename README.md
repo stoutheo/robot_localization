@@ -9,4 +9,12 @@ Please see documentation here: http://docs.ros.org/melodic/api/robot_localizatio
 
 Installation of the following package is required:
 
-sudo apt-get install ros-indigo-geographic-msgs
+(Ubuntu 18)
+
+$ sudo apt-get install ros-melodic-geographic-msgs 
+
+or 
+
+(Ubuntu 20)
+
+$ sudo apt-get install ros-melodic-geographic-msgs
