@@ -9,12 +9,14 @@ Please see documentation here: http://docs.ros.org/melodic/api/robot_localizatio
 
 Installation of the following package is required:
 
+> rosdep install robot_localization
+
 (Ubuntu 18)
 
-$ sudo apt-get install ros-melodic-geographic-msgs 
+> sudo apt-get install ros-melodic-geographic-msgs 
 
 or 
 
 (Ubuntu 20)
 
-$ sudo apt-get install ros-melodic-geographic-msgs
+> sudo apt-get install ros-melodic-geographic-msgs
